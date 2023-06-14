@@ -1,0 +1,251 @@
+@layer base{
+:root{
+    --lime:#a4ffa2;
+    --magenta:#f47dda;
+    --magenta50:#f47dda80;
+    --white: #ffffff;
+    --tan:#c3c5b4;
+    --teal:#2e6d81;
+    --cyan:#7de6f4;
+    --black:#050d14;
+    --base-size: 1rem ;
+    --scale: 1.25;
+    --h6:var(--base-size);
+    --h5:calc(var(--h6) * var(--scale)); 
+    --h4:calc(var(--h5) * var(--scale)); 
+    --h3:calc(var(--h4) * var(--scale)); 
+    --h2:calc(var(--h3) * var(--scale)); 
+    --h1:calc(var(--h2) * var(--scale));
+    
+    --sans-serif:"Poppins",sans-serif;
+
+}
+html{
+    box-sizing: border-box;
+
+}
+ 
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+/* for boxes in a row */
+.colors{
+    display: flex;
+    flex-flow: row wrap;
+    gap:1rem;
+}
+
+.colors > *{
+    width:3rem;
+    height: 3rem;
+}
+.lime{
+    background-color: var(--lime);
+}
+.magenta{
+    background-color: var(--magenta);
+}
+.magenta50{
+    background-color: var(--magenta50);
+}
+.white{
+    background-color: var(--white);
+    border: 1px solid var(--teal);
+}
+.tan{
+    background-color: var(--tan);
+}
+.teal{
+    background-color: var(--teal);
+}
+.cyan{
+    background-color: var(--cyan);
+}
+.black{
+    background-color: var(--black);
+}
+
+
+html{
+    font-size:100%;/* 16 px*/
+
+}
+body{
+    font-family: var(--sans-serif);
+    font-weight: 400;
+    line-height: 1.75;
+    font-size:var(--base-size);
+    background-color: var(--teal);
+    color:var(--white);
+    margin: 0;
+    padding:0;
+    text-align: center;
+}
+a{
+    color:var(--lime);
+}
+p{
+    margin-bottom: 1rem;
+}
+a:hover{
+    color:var(--magenta50);
+}
+h1,h2,h3,h4,h5,h6{
+    margin: 3rem 0 1.38rem;
+    font-family: var(--sans-serif);
+    font-weight: 300;
+    line-height: 1.3;
+}
+img{
+    width:100%;
+    text-decoration: none;
+}
+figure{
+    margin: 0;
+    padding:0;
+}
+
+h1,.h1{
+    margin-top: 0;
+    font-size: var(--h1);
+}
+h2,.h2{
+    font-size: var(--h2);
+}
+h3,.h3{
+    font-size: var(--h3);
+}
+h4,.h4{
+    font-size:var(--h4);
+}
+
+h5,.h5{
+    font-size: calc(var(--base-size)*var(--scale));  
+}
+h6.h6{
+    font-size: calc(v);
+}
+small,.text_small{
+    font-size: calc(var(--base-size)/var(--scale));
+}
+.club{
+    font-size: var(--h5);
+}
+/* makes an img flexible not cut  */
+
+img{
+    width:100%;
+    max-width: 100%;
+}
+blockquote{
+    margin: 0;
+    padding: 0;
+
+}
+cite{
+   font-style: normal;
+   padding:0;
+   /* margin:0; */
+   /* cite is an inline element so margin up and down dont apply lol */
+   margin-top:-3px;
+   display:block;
+}
+main{
+    margin-bottom: 4rem;    
+}
+footer{
+    text-transform: uppercase;
+    margin-top: 5rem;
+}
+
+}
+@layer header{
+    .wrapper{
+        max-width: 375px;
+        /* border: 1px solid white; */
+        margin: 0 auto;
+        /* padding: 10px; */
+         
+    }
+    header{
+        padding-top: 3rem;
+        padding-bottom: 2rem;
+        /* used for inline elements, inherited */
+        /* text-align: center; */
+    }
+    header img{
+        max-width: 150px;
+        /* border: 1px solid white; */
+        /* logo size */
+    }
+
+}
+@layer tour{
+    .date{
+        color:var(--tan);
+
+    }
+    .club{
+        color: var(--lime);
+        font-size: var(--h5);
+    }
+    @media(min-width:800px){
+
+        /* if a min width is first its mobile if its a max width then its a desktop first */
+        .wrapper{
+            max-width: 800px;
+        }
+        /* main > * {
+            /* border: 1px solid white; */
+        
+        main{
+            display : grid;
+            grid-template-columns: repeat(3,1fr);
+            
+        }
+        main h1{
+            /* grid-row-start/ grid-col-start/grid-row-end/grid-col-end */
+            grid-area:1 / 1 / 2 / 4 ;
+        }
+        aside{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            
+            gap: 2rem;
+        }
+
+
+    }
+    @media(min-width: 1025px){
+        .wrapper{
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 0 2rem;
+
+
+        }
+        /* .wrapper > *{
+            /* border:1px solid white; */
+
+        main{
+            grid-area: 1/2/5/3;
+            /* woahhh */
+            display: block;
+            padding-top: 8rem;
+        }
+    }
+    
+}
+@layer reviews{
+    .imggroup{
+        margin-top:2rem;
+
+    }
+    /* images are inline so we dont have to actually align the stars */
+    .star{
+        width: 18px;
+    }
+    
+    
+}
