@@ -83,6 +83,8 @@
         color:var(--white);
         margin: 0;
         padding:0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
         /* text-align: center; */
     }
     a{
@@ -184,14 +186,43 @@
         }
 }
 @layer tour{
-        .date{
+    /* p:has(.club){
+        font-family: var(--sans-serif);
+    } */
+        main p{
+            font-family: var(--sans-serif);
+        }   
+        .dates{
             color:var(--tan);
+            font-family: var(--cursive);
+            /* font-weight: 500; */
+            
     
         }
         .club{
             color: var(--lime);
             font-size: var(--h5);
+            font-family: var(--serif);
+            text-transform: uppercase;
         }
+        main {
+            margin: 0 auto 4rem auto;
+            text-align: left;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 0;
+            max-width: 600px;
+          }
+        main h1 {
+            grid-area: 1 / 1 / 2 / 3;
+            text-align: center;
+            font-family: var(--cursive);
+        }
+          main p:nth-child(odd) {
+            justify-self: end;
+            align-self: center;
+          }
+        
         .button-primary{
             text-transform : uppercase;
             border : 2px solid var(--magenta);
@@ -212,20 +243,50 @@
             border-color : var(--cyan);
 
         }
-        .button-soldout{
+        .button-soldout{ 
             color : var(--magenta50);
             border-color : var(--magenta50);
-            background : linear-gradient(to top right, #fff calc(50%-1px),black,#fff calc(50%+1px))
+            background: linear-gradient(to top right, transparent calc(50% - 3px), var(--magenta50), transparent calc(50% + 3px));
+
+            pointer-events: none;
+            /* alternative solution : no hover needed   */
         }
+        .button-soldout:hover{
+            color:var(--magenta50);
+            border-color: var(--magenta50);
+            /* or we could do  */
+        }
+        @layer footer {
+            footer {
+              text-align: center;
+            }
+            footer ul {
+              list-style-type: none;
+              padding: 0;
+              margin: 1rem 0;
+              display: flex;
+              flex-flow: row wrap;
+              justify-content: center;
+              align-items: center;
+              gap: 2rem;
+            }
+            footer svg {
+              fill: var(--lime);
+            }
+            footer svg:hover {
+              fill: var(--cyan);
+            }
+          }
         
 }
-    
+
 
 @media(min-width:800px){
     
             /* if a min width is first its mobile if its a max width then its a desktop first */
             .wrapper{
                 max-width: 800px;
+                padding: 2rem;
             }
             /* main > * {
                 /* border: 1px solid white; */
@@ -235,7 +296,7 @@
 @media(min-width: 1025px){
             .wrapper{
                 max-width: 1200px;
-                gap: 0 2rem;
+                /* gap: 0 2rem; */
     
     
             }

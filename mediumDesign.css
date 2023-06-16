@@ -1,0 +1,433 @@
+@layer base{
+    :root{
+        --lime:#a4ffa2;
+        --magenta:#f47dda;
+        --magenta50:#f47dda80;
+        --white: #ffffff;
+        --tan:#c3c5b4;
+        --teal:#2e6d81;
+        --cyan:#7de6f4;
+        --black:#050d14;
+        --base-size: 1rem ;
+        --scale: 1.25;
+        --h6:var(--base-size);
+        --h5:calc(var(--h6) * var(--scale)); 
+        --h4:calc(var(--h5) * var(--scale)); 
+        --h3:calc(var(--h4) * var(--scale)); 
+        --h2:calc(var(--h3) * var(--scale)); 
+        --h1:calc(var(--h2) * var(--scale));
+
+        --gradient :linear-gradient(180deg, var(--black) 0% ,var(--teal) 100%);
+        
+        --sans-serif:"Poppins",sans-serif;
+        --serif:"Cormorant Garamond" , serif;
+        --cursive: "Pacifico", Cursive;
+    
+    }
+    html{
+        box-sizing: border-box;
+    
+    }
+     
+    *,*:before,*:after{
+        box-sizing: inherit;
+    }
+    /* for boxes in a row */
+    .colors{
+        display: flex;
+        flex-flow: row wrap;
+        gap:1rem;
+    }
+    
+    .colors > *{
+        width:3rem;
+        height: 3rem;
+    }
+    .lime{
+        background-color: var(--lime);
+    }
+    .magenta{
+        background-color: var(--magenta);
+    }
+    .magenta50{
+        background-color: var(--magenta50);
+    }
+    .white{
+        background-color: var(--white);
+        border: 1px solid var(--teal);
+    }
+    .tan{
+        background-color: var(--tan);
+    }
+    .teal{
+        background-color: var(--teal);
+    }
+    .cyan{
+        background-color: var(--cyan);
+    }
+    .black{
+        background-color: var(--black);
+    }
+    
+    
+    html{
+        font-size:100%;/* 16 px*/
+    
+    }
+    body{
+        font-family: var(--serif);
+        font-weight: 400;
+        line-height: 1.75;
+        font-size:var(--base-size);
+        background:var(--gradient);
+        color:var(--white);
+        margin: 0;
+        padding:0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        /* text-align: center; */
+    }
+    a{
+        color:var(--lime);
+    }
+    p{
+        margin-bottom: 1rem;
+    }
+    a:hover{
+        color:var(--magenta50);
+    }
+    h1,h2,h3,h4,h5,h6{
+        margin: 3rem 0 1.38rem;
+        font-family: var(--sans-serif);
+        font-weight: 300;
+        line-height: 1.3;
+    }
+    img{
+        width:100%;
+        text-decoration: none;
+    }
+    figure{
+        margin: 0;
+        padding:0;
+    }
+    
+    h1,.h1{
+        margin-top: 0;
+        font-size: var(--h1);
+    }
+    h2,.h2{
+        font-size: var(--h2);
+    }
+    h3,.h3{
+        font-size: var(--h3);
+    }
+    h4,.h4{
+        font-size:var(--h4);
+    }
+    
+    h5,.h5{
+        font-size: calc(var(--base-size)*var(--scale));  
+    }
+    h6.h6{
+        font-size: calc(v);
+    }
+    small,.text_small{
+        font-size: calc(var(--base-size)/var(--scale));
+    }
+    .club{
+        font-size: var(--h5);
+    }
+    /* makes an img flexible not cut  */
+    
+    img{
+        width:100%;
+        max-width: 100%;
+    }
+    blockquote{
+        margin: 0;
+        padding: 0;
+    
+    }
+    cite{
+       font-style: normal;
+       padding:0;
+       /* margin:0; */
+       /* cite is an inline element so margin up and down dont apply lol */
+       margin-top:-3px;
+       display:block;
+    }
+    main{
+        margin-bottom: 4rem;    
+    }
+    footer{
+        text-transform: uppercase;
+        margin-top: 5rem;
+    }
+    
+    }
+@layer header{
+        .wrapper{
+            max-width: 375px;
+            /* border: 1px solid white; */
+            margin: 0 auto;
+            /* padding: 10px; */
+             
+        }
+        header{
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+            /* used for inline elements, inherited */
+            /* text-align: center; */
+        }
+        header img{
+            max-width: 150px;
+            /* border: 1px solid white; */
+            /* logo size */
+        }
+}
+@layer reviews{
+    /* images are inline so we dont have to actually align the stars */
+    .star{
+        width: 18px;
+    }
+    .featured-img {
+        display:none;
+
+    }
+    .reviews{
+        max-width: 500px;
+        margin: 2rem auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        /* padding: 2 rem; */
+        text-align: center;
+        border: 1px solid white;
+        justify-content: center;
+    }
+    @media (min-width: 700px){
+        .featured-img{
+            display: inline-block;
+
+        }
+        .reviews{
+            border: 2px solid var(--cyan);
+            display: grid;
+            grid-template-columns: repeat(6,90px);
+            width:540px;
+        }
+        .reviews figure:first-of-type{
+            order:1;
+            grid-row: 1/2;
+            grid-column: 1/4;
+            justify-self: end;
+            padding: 1rem 5rem 0 5rem;
+            /* ckw  */
+
+        
+        }
+        .reviews figure:nth-of-type(2){
+            order: 1;
+            grid-column: 4/7;
+            grid-row: 1/2;
+            justify-self: start;
+            padding: 1rem 3.5rem 0 3.5rem;
+        }
+        .featured-img{
+            order:2;
+            grid-column: span 2;
+            /* border: 2px solid var(--white); */
+         }
+         .featured-img img{
+            border: 2px solid var(--white);
+
+         }
+        .reviews figure:nth-of-type(3){
+            order:3;
+            grid-column: 1/4;
+            grid-row: 3/4; 
+            /* padding-left:2rem; */
+            justify-self: end;
+            padding: 0 2.5rem 1rem 6.2rem;
+        }
+        .reviews figure:nth-of-type(4){
+            order:3;
+            grid-column: 4/7;
+            grid-row: 3/4;
+            justify-self: start;
+            padding:0 2rem;
+        }
+       
+    }
+    @media (min-width: 1000px){
+        .reviews{
+            /* dmmm */
+            display: block;
+            width: 200px;
+            position: relative;
+        }
+        .reviews figure:first-of-type,
+        .reviews figure:nth-of-type(2),
+        .reviews figure:nth-of-type(3){
+            padding: 1rem;
+
+             /* or just use figure:nth-of-type(n) */
+        
+        }
+        .featured-img {
+            position:relative;
+            /* margin-left: -1.5rem; */
+            right:1.5rem;
+
+        }
+    }
+    
+    
+    
+} 
+@layer tour{
+    /* p:has(.club){
+        font-family: var(--sans-serif);
+    } */
+        main p{
+            font-family: var(--sans-serif);
+        }   
+        .dates{
+            color:var(--tan);
+            font-family: var(--cursive);
+            /* font-weight: 500; */
+            
+    
+        }
+        .club{
+            color: var(--lime);
+            font-size: var(--h5);
+            font-family: var(--serif);
+            text-transform: uppercase;
+        }
+        main {
+            margin: 0 auto 4rem auto;
+            text-align: left;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 0;
+            max-width: 600px;
+          }
+        main h1 {
+            grid-area: 1 / 1 / 2 / 3;
+            text-align: center;
+            font-family: var(--cursive);
+        }
+          main p:nth-child(odd) {
+            justify-self: end;
+            align-self: center;
+          }
+        
+        .button-primary{
+            text-transform : uppercase;
+            border : 2px solid var(--magenta);
+            margin : 1rem 0rem;
+            padding : 1rem 2rem;
+            color : var(--magenta);
+            border-radius : 10px;
+            text-align : center;
+            text-decoration : none;
+            font-weight : 600;
+            display : inline-block;
+            /* words wont wrap */
+            white-space : nowrap;
+            width : 170px;
+        }
+        .button-primary:hover{
+            color : var(--cyan);
+            border-color : var(--cyan);
+
+        }
+        .button-soldout{ 
+            color : var(--magenta50);
+            border-color : var(--magenta50);
+            background: linear-gradient(to top right, transparent calc(50% - 3px), var(--magenta50), transparent calc(50% + 3px));
+
+            pointer-events: none;
+            /* alternative solution : no hover needed   */
+        }
+        .button-soldout:hover{
+            color:var(--magenta50);
+            border-color: var(--magenta50);
+            /* or we could do  */
+        }
+}
+
+    @layer album {
+        .album {
+          border: 2px solid var(--cyan);
+          max-width: 500px;
+          margin: 3rem auto 1rem auto;
+          padding: 1rem;
+          text-align: center;
+        }
+        .album h1 {
+          color: var(--lime);
+          font-weight: 300;
+          text-transform: uppercase;
+          font-size: var(--h4);
+          margin: 1rem 0;
+        }
+        .album h2 {
+          margin: 0;
+          font-size: var(--h6);
+          font-family: var(--cursive);
+        }
+      }
+      
+      @layer playlist {
+        table {
+          border-collapse: collapse;
+          max-width: 500px;
+          width: 100%;
+          margin: 0 auto;
+          font-family: var(--cursive);
+        }
+        caption {
+          visibility: collapse;
+          /* the accessible way of hiding this but still visible to screen readers */
+        }
+        th, td {
+          padding: 1rem 0;
+        }
+        th {
+          text-align: left;
+          font-family: var(--sans-serif);
+          color: var(--grey);
+          border-bottom: 1px solid var(--grey);
+        }
+        td:last-of-type {
+          font-family: var(--serif);
+          color: var(--magenta);
+          font-weight: 600;
+        }
+      }
+    
+
+@media(min-width:800px){
+    
+    /* if a min width is first its mobile if its a max width then its a desktop first */
+    .wrapper{
+        max-width: 800px;
+        padding: 2rem;
+    }
+    /* main > * {
+        /* border: 1px solid white; */
+
+
+}
+@media(min-width: 1025px){
+    .wrapper{
+        max-width: 1200px;
+        /* gap: 0 2rem; */
+
+
+    }
+    /* .wrapper > *{
+        /* border:1px solid white; */
+}
